@@ -1,4 +1,4 @@
-# Expense-Tracker
+# TrackIt
 
 # 🪙 TrackIt - Smart Expense Tracker
 

@@ -1,0 +1,259 @@
+:root {
+    /* LIGHT THEME (Now the default base) */
+    --bg-color: #ffffff;
+    --card-bg: #f9f9f9;
+    --text-color: #000000;
+    --accent-color: #007bff;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --border-color: #ccc;
+}
+
+[data-theme="dark"] {
+    /* DARK THEME */
+    --bg-color: #1e1e2f;
+    --card-bg: #27293d;
+    --text-color: #ffffff;
+    --accent-color: #bb86fc;
+    --danger-color: #cf6679;
+    --warning-color: #f39c12;
+    --border-color: #444;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s;
+    min-height: 100vh;
+}
+
+/* AUTH SCREEN */
+.auth-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--accent-color), var(--bg-color));
+}
+
+.auth-card {
+    width: 350px;
+    text-align: center;
+}
+
+.auth-card h1 {
+    margin-bottom: 0.5rem;
+}
+
+.auth-card input {
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.logout {
+    background-color: var(--danger-color);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+/* BUDGET SECTION */
+.budget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.budget-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.progress-container {
+    width: 100%;
+    background: var(--border-color);
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0%;
+    transition: width 0.5s, background 0.3s;
+}
+
+/* DASHBOARD & FORM */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+form {
+    display: grid;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+input,
+select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+button {
+    padding: 10px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* GRAPH & LIST */
+.graph-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-actions {
+    display: flex;
+    gap: 10px;
+}
+
+#transaction-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.category-badge {
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 10px;
+    color: #fff;
+}
+
+/* CATEGORY COLORS */
+.cat-food {
+    background-color: #ff6384;
+}
+
+.cat-travel {
+    background-color: #36a2eb;
+}
+
+.cat-utilities {
+    background-color: #ffce56;
+}
+
+.cat-entertainment {
+    background-color: #9966ff;
+}
+
+.cat-other {
+    background-color: #4bc0c0;
+}
+
+/* The Glowing Orb */
+#cursor-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    /* Uses your theme's accent color automatically! */
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    /* Prevents it from blocking your clicks */
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    /* Keeps it behind the cards */
+    opacity: 0.15;
+    /* Keeps it subtle and professional */
+    transition: background 0.3s ease;
+}
+
+/* Upgrade Cards to Glassmorphism */
+.card {
+    background-color: color-mix(in srgb, var(--card-bg) 85%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid color-mix(in srgb, var(--border-color) 50%, transparent);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}

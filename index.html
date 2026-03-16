@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Expense Tracker</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div id="cursor-glow"></div>
+  <div id="auth-screen" class="auth-container">
+    <div class="card auth-card">
+      <h1><i class="fas fa-wallet"></i> TrackIt</h1>
+      <p>Track expenses, save money.</p>
+      <form id="login-form">
+        <input type="email" id="login-email" placeholder="Enter Email" required>
+        <input type="password" id="login-password" placeholder="Enter Password" required>
+        <button type="submit">Login / Signup</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="app-screen" style="display: none;">
+    <nav>
+      <h1><i class="fas fa-wallet"></i> TrackIt</h1>
+      <div class="nav-controls">
+        <span id="user-display">Welcome!</span>
+        <button id="theme-btn">Theme: Light</button>
+        <button id="logout-btn" class="logout">Logout</button>
+      </div>
+    </nav>
+
+    <div class="container">
+      <section class="card budget-section">
+        <div class="budget-header">
+          <h2>Monthly Budget</h2>
+          <input type="number" id="budget-limit" placeholder="Set Limit (₹)">
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="budget-progress"></div>
+        </div>
+        <div class="budget-stats">
+          <span>Spent: <strong id="total-amount">₹0</strong></span>
+          <span id="budget-status">Remaining: ₹0</span>
+        </div>
+      </section>
+
+      <section class="card input-section">
+        <h2>Add Transaction</h2>
+        <form id="expense-form">
+          <input type="text" id="desc" placeholder="Description (e.g. Pizza)" required>
+          <input type="number" id="amount" placeholder="Amount (₹)" required>
+          <select id="category">
+            <option value="food">Food</option>
+            <option value="travel">Travel</option>
+            <option value="utilities">Utilities</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="other">Other</option>
+          </select>
+          <input type="date" id="date" required>
+          <button type="submit">Add Expense</button>
+        </form>
+      </section>
+
+      <section class="dashboard">
+        <div class="card graph-container">
+          <canvas id="expenseChart"></canvas>
+        </div>
+
+        <div class="card advice-container">
+          <h2>💡 Smart Insights</h2>
+          <div id="advice-text">Add expenses to generate AI insights...</div>
+        </div>
+      </section>
+
+      <section class="card history-section">
+        <div class="history-header">
+          <h2>History</h2>
+          <div class="history-actions">
+            <input type="month" id="month-filter">
+            <button id="export-btn" title="Download CSV"><i class="fas fa-download"></i> Export</button>
+          </div>
+        </div>
+        <ul id="transaction-list"></ul>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -257,3 +257,28 @@ button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
+
+/* --- Mobile Responsive Fix for Header --- */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column; 
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .nav-controls {
+        flex-direction: column; 
+        width: 100%;
+        gap: 10px;
+    }
+
+    #user-display {
+        font-size: 0.9rem;
+        word-break: break-all; 
+        width: 100%;
+    }
+    
+    .nav-controls button {
+        width: 100%;
+    }
+}
